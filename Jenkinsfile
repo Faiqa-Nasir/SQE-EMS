@@ -3,20 +3,25 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                // Pull the latest code from your repository
-                git branch: 'main', url: 'https://github.com/Faiqa-Nasir/SQE-EMS'
+                git branch: 'main', 
+                    url: 'https://github.com/Faiqa-Nasir/SQE-EMS', 
+                    credentialsId: 'github-token'
             }
         }
         stage('Install Dependencies') {
             steps {
-                // Install Python dependencies
-                sh 'pip install -r requirements.txt'
+                bat 'C:\\Users\\PMLS\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -m pip install -r requirements.txt'
+            }
+        }
+        stage('Upgrade Pip') {
+            steps {
+                bat 'C:\\Users\\PMLS\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -m pip install --upgrade pip'
             }
         }
         stage('Run Tests') {
             steps {
-                // Run tests
-                sh 'pytest -v tests/'
+                // Use full path to pytest
+                bat 'C:\\Users\\PMLS\\AppData\\Local\\Programs\\Python\\Python312\\Scripts\\pytest.exe -v tests/'
             }
         }
     }
