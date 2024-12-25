@@ -6,4 +6,4 @@ pip install -r requirements.txt
 
 python app.py
 
-use pytest to run tests
+use pytest -v to run all the tests
