@@ -1,6 +1,6 @@
 # SQE-EMS
 
-run the following 
+run the following cmd
 
 pip install -r requirements.txt
 
